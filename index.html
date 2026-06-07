@@ -1995,12 +1995,12 @@ function printCurrentRoster(){
       const site=makeSite(i);
       content+=`<div class="dive-label">${sessionEmoji(currentTab)} ${sLabel} — Dive ${i}${site?' · '+site:''}</div>
         ${rosterTable()}
-        ${i===dives?tankHTML:''}`;
+        ${i===dives&&!isSnorkel?tankHTML:''}`;
     }
   } else {
     content=`<div class="dive-label">${sessionEmoji(currentTab)} ${sLabel}${meta.site?' · '+meta.site:''}</div>
       ${rosterTable()}
-      ${tankHTML}`;
+      ${isSnorkel?'':`${tankHTML}`}`;
   }
 
   // Build complete self-contained print HTML
